@@ -1,16 +1,23 @@
-# feature_engineering
 
-def create_features(data):
+import pandas as pd
+def select_features(data: pd.DataFrame):
     """
-    Create new features for analysis.
-
+    Selects the relevant features and the target variable.
+    
     Args:
         data (pd.DataFrame): The dataset.
 
     Returns:
-        pd.DataFrame: Dataset with new features.
+        tuple: Features (X) and target variable (y).
     """
-    # Example: Add a feature that calculates log transformation of a column
-    if 'value' in data.columns:
-        data['log_value'] = data['value'].apply(lambda x: np.log(x + 1))
-    return data
+    features = ['Store', 'DayOfWeek', 'Open', 'Promo', 'CompetitionDistance', 'SchoolHoliday']
+
+    # Ensure that all columns in 'features' are present in the dataset
+    features = [col for col in features if col in data.columns]
+
+    # Extracting features and target variable
+    X = data[features]
+    y = data['Sales']
+
+    return X, y
+
