@@ -2,6 +2,7 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import numpy as np
 
 
 def plot_distribution(data, column, output_path=None):
