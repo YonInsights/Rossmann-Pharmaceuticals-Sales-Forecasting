@@ -36,11 +36,4 @@ def save_clean_data(data, output_path):
     data.to_csv(output_path, index=False)
 
 if __name__ == "__main__":
-    # Example usage
-    file_path = "data/raw/train.csv"  # Update this path as needed
-    output_path = "data/processed/cleaned_train.csv"
-
-    # Load, clean, and save the data
-    data = load_data(file_path)
-    cleaned_data = clean_data(data)
-    save_clean_data(cleaned_data, output_path)
+ 
