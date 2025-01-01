@@ -15,19 +15,22 @@ def clean_data(data: pd.DataFrame, data_type: str = "train", save_path: str = No
     Returns:
         pd.DataFrame: The cleaned data.
     """
+    # Create a copy of the data to avoid modifying the original dataframe
+    data = data.copy()
+
     # Handle Missing Values
     if data_type == "store":
-        data['CompetitionDistance'].fillna(data['CompetitionDistance'].median(), inplace=True)
-        data['CompetitionOpenSinceMonth'].fillna(0, inplace=True)
-        data['CompetitionOpenSinceYear'].fillna(0, inplace=True)
-        data['Promo2SinceWeek'].fillna(0, inplace=True)
-        data['Promo2SinceYear'].fillna(0, inplace=True)
-        data['PromoInterval'].fillna('None', inplace=True)
+        data['CompetitionDistance'] = data['CompetitionDistance'].fillna(data['CompetitionDistance'].median())
+        data['CompetitionOpenSinceMonth'] = data['CompetitionOpenSinceMonth'].fillna(0)
+        data['CompetitionOpenSinceYear'] = data['CompetitionOpenSinceYear'].fillna(0)
+        data['Promo2SinceWeek'] = data['Promo2SinceWeek'].fillna(0)
+        data['Promo2SinceYear'] = data['Promo2SinceYear'].fillna(0)
+        data['PromoInterval'] = data['PromoInterval'].fillna('None')
 
-    elif data_type == "train" or data_type == "test":
+    elif data_type in ["train", "test"]:
         # Fill missing 'Open' values in test data with 1 (assume open if missing)
         if 'Open' in data.columns:
-            data['Open'].fillna(1, inplace=True)
+            data['Open'] = data['Open'].fillna(1)
 
     # Convert Data Types
     if 'Date' in data.columns:
@@ -38,7 +41,7 @@ def clean_data(data: pd.DataFrame, data_type: str = "train", save_path: str = No
         data['StateHoliday'] = data['StateHoliday'].replace({'0': '0', 'a': '1', 'b': '2', 'c': '3'}).astype(int)
 
     # Detect and Remove Duplicates
-    data.drop_duplicates(inplace=True)
+    data = data.drop_duplicates()
 
     # Standardize Numerical Columns (Optional for modeling phase)
     if data_type == "store" and 'CompetitionDistance' in data.columns:
