@@ -1,36 +1,46 @@
 import pandas as pd
 import numpy as np
-def clean_data(data):
+from sklearn.preprocessing import StandardScaler
+
+def clean_data(data: pd.DataFrame, data_type: str = "train") -> pd.DataFrame:
     """
-    Clean the dataset by handling missing values and outliers.
-
-    Args:
-        data (pd.DataFrame): The raw dataset.
-
+    Cleans the input data by handling missing values, outliers, data types, and consistency checks.
+    
+    Parameters:
+        data (pd.DataFrame): The input data to be cleaned.
+        data_type (str): Type of data ('train', 'test', 'store') to handle specific columns differently.
+        
     Returns:
-        pd.DataFrame: Cleaned dataset.
+        pd.DataFrame: The cleaned data.
     """
-    # Handling missing values
-    data.fillna(method='ffill', inplace=True)  # Forward fill for simplicity
+    # Handle Missing Values
+    if data_type == "store":
+        data['CompetitionDistance'].fillna(data['CompetitionDistance'].median(), inplace=True)
+        data['CompetitionOpenSinceMonth'].fillna(0, inplace=True)
+        data['CompetitionOpenSinceYear'].fillna(0, inplace=True)
+        data['Promo2SinceWeek'].fillna(0, inplace=True)
+        data['Promo2SinceYear'].fillna(0, inplace=True)
+        data['PromoInterval'].fillna('None', inplace=True)
 
-    # Handling outliers
-    numeric_cols = data.select_dtypes(include=[np.number]).columns
-    for col in numeric_cols:
-        q1 = data[col].quantile(0.25)
-        q3 = data[col].quantile(0.75)
-        iqr = q3 - q1
-        lower_bound = q1 - 1.5 * iqr
-        upper_bound = q3 + 1.5 * iqr
-        data[col] = np.clip(data[col], lower_bound, upper_bound)
+    elif data_type == "train" or data_type == "test":
+    # Fill missing 'Open' values in test data with 1 (assume open if missing)
+        if 'Open' in data.columns:
+            data['Open'].fillna(1, inplace=True)
+
+    # Convert Data Types
+    if 'Date' in data.columns:
+        data['Date'] = pd.to_datetime(data['Date'])
+
+    # Encode Categorical Features
+    if 'StateHoliday' in data.columns:
+        data['StateHoliday'] = data['StateHoliday'].replace({'0': '0', 'a': '1', 'b': '2', 'c': '3'}).astype(int)
+
+    # Detect and Remove Duplicates
+    data.drop_duplicates(inplace=True)
+
+    # Standardize Numerical Columns 
+    if data_type == "store" and 'CompetitionDistance' in data.columns:
+        scaler = StandardScaler()
+        data['CompetitionDistance'] = scaler.fit_transform(data[['CompetitionDistance']])
 
     return data
-
-def save_clean_data(data, output_path):
-    """
-    Save the cleaned dataset to a CSV file.
-
-    Args:
-        data (pd.DataFrame): Cleaned dataset.
-        output_path (str): Path to save the cleaned data.
-    """
-    data.to_csv(output_path, index=False)
