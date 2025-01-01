@@ -27,13 +27,16 @@ def plot_distribution(data, column, output_path=None):
 def plot_correlation_matrix(data, output_path=None):
     """
     Plot and save the correlation matrix of the dataset.
-
+    
     Args:
         data (pd.DataFrame): Dataset.
         output_path (str): Path to save the plot. If None, the plot is not saved.
     """
+    # Select only numeric columns for correlation
+    numeric_data = data.select_dtypes(include=[np.number])
+    
     plt.figure(figsize=(12, 8))
-    corr_matrix = data.corr()
+    corr_matrix = numeric_data.corr()
     sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", fmt=".2f")
     plt.title("Correlation Matrix")
 
