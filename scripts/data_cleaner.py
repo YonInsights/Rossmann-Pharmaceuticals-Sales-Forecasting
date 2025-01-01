@@ -34,6 +34,3 @@ def save_clean_data(data, output_path):
         output_path (str): Path to save the cleaned data.
     """
     data.to_csv(output_path, index=False)
-
-if __name__ == "__main__":
- 
