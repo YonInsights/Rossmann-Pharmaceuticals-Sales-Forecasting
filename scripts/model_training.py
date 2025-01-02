@@ -1,17 +1,14 @@
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-import pandas as pd
-
-# model_training.py
 
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split, RandomizedSearchCV
 from sklearn.metrics import mean_squared_error
 import numpy as np
+from scipy.stats import randint
+import pandas as pd
 
 def train_model(X, y):
     """
-    Trains a Random Forest model with hyperparameter tuning using GridSearchCV.
+    Trains a Random Forest model with hyperparameter tuning using RandomizedSearchCV.
     
     Args:
         X (pd.DataFrame): Features.
@@ -19,8 +16,8 @@ def train_model(X, y):
         
     Returns:
         model (RandomForestRegressor): Trained model.
-        best_params (dict): Best hyperparameters from GridSearchCV.
-        rmse (float): Root Mean Squared Error of the model on the training set.
+        best_params (dict): Best hyperparameters from RandomizedSearchCV.
+        rmse (float): Root Mean Squared Error of the model on the test set.
     """
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -28,22 +25,22 @@ def train_model(X, y):
     # Define the model
     model = RandomForestRegressor(random_state=42)
 
-    # Define hyperparameters for tuning
-    param_grid = {
-        'n_estimators': [100, 200],
+    # Define the hyperparameters to sample
+    param_dist = {
+        'n_estimators': randint(50, 150),
         'max_depth': [10, 20, None],
-        'min_samples_split': [2, 5],
-        'min_samples_leaf': [1, 2],
+        'min_samples_split': randint(2, 10),
+        'min_samples_leaf': randint(1, 5),
         'bootstrap': [True, False]
     }
 
-    # Use GridSearchCV to find the best hyperparameters
-    grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=3, n_jobs=-1, verbose=2)
-    grid_search.fit(X_train, y_train)
+    # Use RandomizedSearchCV to sample from the parameter space
+    random_search = RandomizedSearchCV(estimator=model, param_distributions=param_dist, n_iter=20, cv=2, n_jobs=-1, verbose=2, random_state=42)
+    random_search.fit(X_train, y_train)
 
     # Get the best model and parameters
-    best_model = grid_search.best_estimator_
-    best_params = grid_search.best_params_
+    best_model = random_search.best_estimator_
+    best_params = random_search.best_params_
 
     # Make predictions on the test set
     y_pred = best_model.predict(X_test)
