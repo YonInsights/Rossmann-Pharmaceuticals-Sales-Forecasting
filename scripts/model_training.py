@@ -18,6 +18,8 @@ def train_model(X, y):
         model (RandomForestRegressor): Trained model.
         best_params (dict): Best hyperparameters from RandomizedSearchCV.
         rmse (float): Root Mean Squared Error of the model on the test set.
+        X_test (pd.DataFrame): Features for testing.
+        y_test (pd.Series): Targets for testing.
     """
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -51,4 +53,4 @@ def train_model(X, y):
     print(f"Best Hyperparameters: {best_params}")
     print(f"RMSE: {rmse}")
 
-    return best_model, best_params, rmse
+    return best_model, best_params, rmse, X_test, y_test
