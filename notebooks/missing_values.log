@@ -18,3 +18,438 @@
 2025-01-03 12:35:18,643 - INFO - Promo2SinceWeek: 48.79%
 2025-01-03 12:35:18,643 - INFO - Promo2SinceYear: 48.79%
 2025-01-03 12:35:18,643 - INFO - PromoInterval: 48.79%
+2025-01-03 12:39:02,654 - INFO - No missing values found.
+2025-01-03 12:39:02,663 - INFO - Columns with missing values and their percentage:
+2025-01-03 12:39:02,663 - INFO - Open: 0.03%
+2025-01-03 12:39:02,667 - INFO - Columns with missing values and their percentage:
+2025-01-03 12:39:02,668 - INFO - CompetitionDistance: 0.27%
+2025-01-03 12:39:02,668 - INFO - CompetitionOpenSinceMonth: 31.75%
+2025-01-03 12:39:02,668 - INFO - CompetitionOpenSinceYear: 31.75%
+2025-01-03 12:39:02,669 - INFO - Promo2SinceWeek: 48.79%
+2025-01-03 12:39:02,669 - INFO - Promo2SinceYear: 48.79%
+2025-01-03 12:39:02,669 - INFO - PromoInterval: 48.79%
+2025-01-03 14:53:49,192 - INFO - No missing values found.
+2025-01-03 14:53:49,204 - INFO - Columns with missing values and their percentage:
+2025-01-03 14:53:49,204 - INFO - Open: 0.03%
+2025-01-03 14:53:49,207 - INFO - Columns with missing values and their percentage:
+2025-01-03 14:53:49,207 - INFO - CompetitionDistance: 0.27%
+2025-01-03 14:53:49,207 - INFO - CompetitionOpenSinceMonth: 31.75%
+2025-01-03 14:53:49,207 - INFO - CompetitionOpenSinceYear: 31.75%
+2025-01-03 14:53:49,207 - INFO - Promo2SinceWeek: 48.79%
+2025-01-03 14:53:49,207 - INFO - Promo2SinceYear: 48.79%
+2025-01-03 14:53:49,208 - INFO - PromoInterval: 48.79%
+2025-01-03 14:54:53,090 - INFO - No missing values found.
+2025-01-03 14:54:53,124 - INFO - Columns with missing values and their percentage:
+2025-01-03 14:54:53,125 - INFO - Open: 0.03%
+2025-01-03 14:54:53,127 - INFO - Columns with missing values and their percentage:
+2025-01-03 14:54:53,128 - INFO - CompetitionDistance: 0.27%
+2025-01-03 14:54:53,128 - INFO - CompetitionOpenSinceMonth: 31.75%
+2025-01-03 14:54:53,128 - INFO - CompetitionOpenSinceYear: 31.75%
+2025-01-03 14:54:53,128 - INFO - Promo2SinceWeek: 48.79%
+2025-01-03 14:54:53,128 - INFO - Promo2SinceYear: 48.79%
+2025-01-03 14:54:53,128 - INFO - PromoInterval: 48.79%
+2025-01-03 15:13:59,625 - INFO - No missing values found.
+2025-01-03 15:13:59,635 - INFO - Columns with missing values and their percentage:
+2025-01-03 15:13:59,635 - INFO - Open: 0.03%
+2025-01-03 15:13:59,637 - INFO - Columns with missing values and their percentage:
+2025-01-03 15:13:59,638 - INFO - CompetitionDistance: 0.27%
+2025-01-03 15:13:59,638 - INFO - CompetitionOpenSinceMonth: 31.75%
+2025-01-03 15:13:59,638 - INFO - CompetitionOpenSinceYear: 31.75%
+2025-01-03 15:13:59,638 - INFO - Promo2SinceWeek: 48.79%
+2025-01-03 15:13:59,638 - INFO - Promo2SinceYear: 48.79%
+2025-01-03 15:13:59,638 - INFO - PromoInterval: 48.79%
+2025-01-03 15:14:02,829 - INFO - Starting count_missing_values function
+2025-01-03 15:14:03,083 - INFO - Missing values in train data:
+Store            0
+DayOfWeek        0
+Date             0
+Sales            0
+Customers        0
+Open             0
+Promo            0
+StateHoliday     0
+SchoolHoliday    0
+dtype: int64
+2025-01-03 15:14:03,084 - INFO - Missing values in test data:
+Id                0
+Store             0
+DayOfWeek         0
+Date              0
+Open             11
+Promo             0
+StateHoliday      0
+SchoolHoliday     0
+dtype: int64
+2025-01-03 15:14:03,085 - INFO - Missing values in store data:
+Store                          0
+StoreType                      0
+Assortment                     0
+CompetitionDistance            3
+CompetitionOpenSinceMonth    354
+CompetitionOpenSinceYear     354
+Promo2                         0
+Promo2SinceWeek              544
+Promo2SinceYear              544
+PromoInterval                544
+dtype: int64
+2025-01-03 15:14:03,089 - INFO - Finished count_missing_values function
+2025-01-03 15:37:48,547 - INFO - No missing values found.
+2025-01-03 15:37:48,574 - INFO - Columns with missing values and their percentage:
+2025-01-03 15:37:48,575 - INFO - Open: 0.03%
+2025-01-03 15:37:48,579 - INFO - Columns with missing values and their percentage:
+2025-01-03 15:37:48,579 - INFO - CompetitionDistance: 0.27%
+2025-01-03 15:37:48,580 - INFO - CompetitionOpenSinceMonth: 31.75%
+2025-01-03 15:37:48,581 - INFO - CompetitionOpenSinceYear: 31.75%
+2025-01-03 15:37:48,581 - INFO - Promo2SinceWeek: 48.79%
+2025-01-03 15:37:48,583 - INFO - Promo2SinceYear: 48.79%
+2025-01-03 15:37:48,590 - INFO - PromoInterval: 48.79%
+2025-01-03 15:37:48,707 - INFO - Starting count_missing_values function
+2025-01-03 15:37:49,130 - INFO - Missing values in train data:
+Store            0
+DayOfWeek        0
+Date             0
+Sales            0
+Customers        0
+Open             0
+Promo            0
+StateHoliday     0
+SchoolHoliday    0
+dtype: int64
+2025-01-03 15:37:49,132 - INFO - Missing values in test data:
+Id                0
+Store             0
+DayOfWeek         0
+Date              0
+Open             11
+Promo             0
+StateHoliday      0
+SchoolHoliday     0
+dtype: int64
+2025-01-03 15:37:49,138 - INFO - Missing values in store data:
+Store                          0
+StoreType                      0
+Assortment                     0
+CompetitionDistance            3
+CompetitionOpenSinceMonth    354
+CompetitionOpenSinceYear     354
+Promo2                         0
+Promo2SinceWeek              544
+Promo2SinceYear              544
+PromoInterval                544
+dtype: int64
+2025-01-03 15:37:49,143 - INFO - Finished count_missing_values function
+2025-01-03 15:37:49,891 - INFO - Missing values in dataframe:
+Store            0
+DayOfWeek        0
+Date             0
+Sales            0
+Customers        0
+Open             0
+Promo            0
+StateHoliday     0
+SchoolHoliday    0
+dtype: int64
+2025-01-03 15:37:49,911 - INFO - Missing values in dataframe:
+Id               0
+Store            0
+DayOfWeek        0
+Date             0
+Open             0
+Promo            0
+StateHoliday     0
+SchoolHoliday    0
+dtype: int64
+2025-01-03 15:37:49,916 - INFO - Missing values in dataframe:
+Store                        0
+StoreType                    0
+Assortment                   0
+CompetitionDistance          0
+CompetitionOpenSinceMonth    0
+CompetitionOpenSinceYear     0
+Promo2                       0
+Promo2SinceWeek              0
+Promo2SinceYear              0
+PromoInterval                0
+dtype: int64
+2025-01-03 15:37:50,996 - INFO - Duplicate rows in dataframe: 0
+2025-01-03 15:37:51,044 - INFO - Duplicate rows in dataframe: 0
+2025-01-03 15:37:51,049 - INFO - Duplicate rows in dataframe: 0
+2025-01-03 15:37:51,475 - INFO - Converted 'Date' fields to datetime format.
+2025-01-03 15:37:51,738 - INFO - Converted categorical variables to category types.
+2025-01-03 15:37:51,740 - INFO - Data types in train data:
+Store                  category
+DayOfWeek              category
+Date             datetime64[ns]
+Sales                     int64
+Customers                 int64
+Open                      int64
+Promo                     int64
+StateHoliday           category
+SchoolHoliday             int64
+dtype: object
+2025-01-03 15:37:51,754 - INFO - Data types in test data:
+Id                        int64
+Store                  category
+DayOfWeek              category
+Date             datetime64[ns]
+Open                    float64
+Promo                     int64
+StateHoliday           category
+SchoolHoliday             int64
+dtype: object
+2025-01-03 15:37:51,949 - INFO - Outliers in Sales:
+        Store DayOfWeek       Date  Sales  Customers  Open  Promo  \
+6           7         5 2015-07-31  15344       1414     1      1   
+23         24         5 2015-07-31  14190       1082     1      1   
+24         25         5 2015-07-31  14180       1586     1      1   
+83         84         5 2015-07-31  14949       1439     1      1   
+107       108         5 2015-07-31  14927        992     1      1   
+...       ...       ...        ...    ...        ...   ...    ...   
+1015767   788         3 2013-01-02  17934       1791     1      0   
+1015796   817         3 2013-01-02  25357       3462     1      0   
+1015821   842         3 2013-01-02  20355       1257     1      0   
+1016093  1114         3 2013-01-02  20642       3401     1      0   
+1016356   262         2 2013-01-01  17267       2875     1      0   
+
+        StateHoliday  SchoolHoliday  
+6                  0              1  
+23                 0              1  
+24                 0              1  
+83                 0              1  
+107                0              0  
+...              ...            ...  
+1015767            0              1  
+1015796            0              1  
+1015821            0              1  
+1016093            0              1  
+1016356            a              1  
+
+[26694 rows x 9 columns]
+2025-01-03 15:37:53,906 - INFO - After capping outliers in Sales:
+count    1.017209e+06
+mean     5.690812e+03
+std      3.595807e+03
+min      0.000000e+00
+25%      3.727000e+03
+50%      5.744000e+03
+75%      7.856000e+03
+max      1.404950e+04
+Name: Sales, dtype: float64
+2025-01-03 15:37:54,005 - INFO - Outliers in Customers:
+        Store DayOfWeek       Date    Sales  Customers  Open  Promo  \
+3           4         5 2015-07-31  13995.0       1498     1      1   
+24         25         5 2015-07-31  14049.5       1586     1      1   
+124       125         5 2015-07-31  14049.5       2041     1      1   
+210       211         5 2015-07-31  14049.5       1659     1      1   
+250       251         5 2015-07-31  14049.5       2508     1      1   
+...       ...       ...        ...      ...        ...   ...    ...   
+1016093  1114         3 2013-01-02  14049.5       3401     1      0   
+1016356   262         2 2013-01-01  14049.5       2875     1      0   
+1016517   423         2 2013-01-01   9643.0       1751     1      0   
+1016656   562         2 2013-01-01   8498.0       1675     1      0   
+1016827   733         2 2013-01-01  10765.0       2377     1      0   
+
+        StateHoliday  SchoolHoliday  
+3                  0              1  
+24                 0              1  
+124                0              1  
+210                0              1  
+250                0              1  
+...              ...            ...  
+1016093            0              1  
+1016356            a              1  
+1016517            a              1  
+1016656            a              1  
+1016827            a              1  
+
+[38095 rows x 9 columns]
+2025-01-03 15:37:55,123 - INFO - After capping outliers in Customers:
+count    1.017209e+06
+mean     6.111560e+02
+std      3.886203e+02
+min      0.000000e+00
+25%      4.050000e+02
+50%      6.090000e+02
+75%      8.370000e+02
+max      1.485000e+03
+Name: Customers, dtype: float64
+2025-01-03 15:39:57,153 - INFO - No missing values found.
+2025-01-03 15:39:57,200 - INFO - Columns with missing values and their percentage:
+2025-01-03 15:39:57,200 - INFO - Open: 0.03%
+2025-01-03 15:39:57,206 - INFO - Columns with missing values and their percentage:
+2025-01-03 15:39:57,206 - INFO - CompetitionDistance: 0.27%
+2025-01-03 15:39:57,206 - INFO - CompetitionOpenSinceMonth: 31.75%
+2025-01-03 15:39:57,206 - INFO - CompetitionOpenSinceYear: 31.75%
+2025-01-03 15:39:57,209 - INFO - Promo2SinceWeek: 48.79%
+2025-01-03 15:39:57,209 - INFO - Promo2SinceYear: 48.79%
+2025-01-03 15:39:57,209 - INFO - PromoInterval: 48.79%
+2025-01-03 15:39:57,299 - INFO - Starting count_missing_values function
+2025-01-03 15:39:57,642 - INFO - Missing values in train data:
+Store            0
+DayOfWeek        0
+Date             0
+Sales            0
+Customers        0
+Open             0
+Promo            0
+StateHoliday     0
+SchoolHoliday    0
+dtype: int64
+2025-01-03 15:39:57,644 - INFO - Missing values in test data:
+Id                0
+Store             0
+DayOfWeek         0
+Date              0
+Open             11
+Promo             0
+StateHoliday      0
+SchoolHoliday     0
+dtype: int64
+2025-01-03 15:39:57,647 - INFO - Missing values in store data:
+Store                          0
+StoreType                      0
+Assortment                     0
+CompetitionDistance            3
+CompetitionOpenSinceMonth    354
+CompetitionOpenSinceYear     354
+Promo2                         0
+Promo2SinceWeek              544
+Promo2SinceYear              544
+PromoInterval                544
+dtype: int64
+2025-01-03 15:39:57,652 - INFO - Finished count_missing_values function
+2025-01-03 15:39:58,093 - INFO - Missing values in dataframe:
+Store            0
+DayOfWeek        0
+Date             0
+Sales            0
+Customers        0
+Open             0
+Promo            0
+StateHoliday     0
+SchoolHoliday    0
+dtype: int64
+2025-01-03 15:39:58,145 - INFO - Missing values in dataframe:
+Id               0
+Store            0
+DayOfWeek        0
+Date             0
+Open             0
+Promo            0
+StateHoliday     0
+SchoolHoliday    0
+dtype: int64
+2025-01-03 15:39:58,150 - INFO - Missing values in dataframe:
+Store                        0
+StoreType                    0
+Assortment                   0
+CompetitionDistance          0
+CompetitionOpenSinceMonth    0
+CompetitionOpenSinceYear     0
+Promo2                       0
+Promo2SinceWeek              0
+Promo2SinceYear              0
+PromoInterval                0
+dtype: int64
+2025-01-03 15:39:59,795 - INFO - Duplicate rows in dataframe: 0
+2025-01-03 15:39:59,834 - INFO - Duplicate rows in dataframe: 0
+2025-01-03 15:39:59,839 - INFO - Duplicate rows in dataframe: 0
+2025-01-03 15:40:00,330 - INFO - Converted 'Date' fields to datetime format.
+2025-01-03 15:40:00,743 - INFO - Converted categorical variables to category types.
+2025-01-03 15:40:00,746 - INFO - Data types in train data:
+Store                  category
+DayOfWeek              category
+Date             datetime64[ns]
+Sales                     int64
+Customers                 int64
+Open                      int64
+Promo                     int64
+StateHoliday           category
+SchoolHoliday             int64
+dtype: object
+2025-01-03 15:40:00,748 - INFO - Data types in test data:
+Id                        int64
+Store                  category
+DayOfWeek              category
+Date             datetime64[ns]
+Open                    float64
+Promo                     int64
+StateHoliday           category
+SchoolHoliday             int64
+dtype: object
+2025-01-03 15:40:00,900 - INFO - Outliers in Sales:
+        Store DayOfWeek       Date  Sales  Customers  Open  Promo  \
+6           7         5 2015-07-31  15344       1414     1      1   
+23         24         5 2015-07-31  14190       1082     1      1   
+24         25         5 2015-07-31  14180       1586     1      1   
+83         84         5 2015-07-31  14949       1439     1      1   
+107       108         5 2015-07-31  14927        992     1      1   
+...       ...       ...        ...    ...        ...   ...    ...   
+1015767   788         3 2013-01-02  17934       1791     1      0   
+1015796   817         3 2013-01-02  25357       3462     1      0   
+1015821   842         3 2013-01-02  20355       1257     1      0   
+1016093  1114         3 2013-01-02  20642       3401     1      0   
+1016356   262         2 2013-01-01  17267       2875     1      0   
+
+        StateHoliday  SchoolHoliday  
+6                  0              1  
+23                 0              1  
+24                 0              1  
+83                 0              1  
+107                0              0  
+...              ...            ...  
+1015767            0              1  
+1015796            0              1  
+1015821            0              1  
+1016093            0              1  
+1016356            a              1  
+
+[26694 rows x 9 columns]
+2025-01-03 15:40:02,413 - INFO - After capping outliers in Sales:
+count    1.017209e+06
+mean     5.690812e+03
+std      3.595807e+03
+min      0.000000e+00
+25%      3.727000e+03
+50%      5.744000e+03
+75%      7.856000e+03
+max      1.404950e+04
+Name: Sales, dtype: float64
+2025-01-03 15:40:02,507 - INFO - Outliers in Customers:
+        Store DayOfWeek       Date    Sales  Customers  Open  Promo  \
+3           4         5 2015-07-31  13995.0       1498     1      1   
+24         25         5 2015-07-31  14049.5       1586     1      1   
+124       125         5 2015-07-31  14049.5       2041     1      1   
+210       211         5 2015-07-31  14049.5       1659     1      1   
+250       251         5 2015-07-31  14049.5       2508     1      1   
+...       ...       ...        ...      ...        ...   ...    ...   
+1016093  1114         3 2013-01-02  14049.5       3401     1      0   
+1016356   262         2 2013-01-01  14049.5       2875     1      0   
+1016517   423         2 2013-01-01   9643.0       1751     1      0   
+1016656   562         2 2013-01-01   8498.0       1675     1      0   
+1016827   733         2 2013-01-01  10765.0       2377     1      0   
+
+        StateHoliday  SchoolHoliday  
+3                  0              1  
+24                 0              1  
+124                0              1  
+210                0              1  
+250                0              1  
+...              ...            ...  
+1016093            0              1  
+1016356            a              1  
+1016517            a              1  
+1016656            a              1  
+1016827            a              1  
+
+[38095 rows x 9 columns]
+2025-01-03 15:40:03,730 - INFO - After capping outliers in Customers:
+count    1.017209e+06
+mean     6.111560e+02
+std      3.886203e+02
+min      0.000000e+00
+25%      4.050000e+02
+50%      6.090000e+02
+75%      8.370000e+02
+max      1.485000e+03
+Name: Customers, dtype: float64
