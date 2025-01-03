@@ -39,3 +39,33 @@ def detect_and_handle_outliers(data, columns):
         # Log the capping process
         logging.info(f"After capping outliers in {column}:\n{data[column].describe()}")
 
+def create_new_features(train_data, test_data):
+    """
+    Create new features for train and test data, and log the process.
+    
+    Parameters:
+        train_data (pandas.DataFrame): The training dataset.
+        test_data (pandas.DataFrame): The testing dataset.
+    """
+    # Set up logging
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
+
+    # Create new features for train data
+    train_data['DayOfWeek'] = train_data['Date'].dt.dayofweek
+    train_data['Month'] = train_data['Date'].dt.month
+    train_data['Year'] = train_data['Date'].dt.year
+    train_data['DaysSinceLastPromo'] = (train_data['Date'] - train_data['Date'][train_data['Promo'] == 1].max()).dt.days
+    
+    logging.info("Created new features for train data.")
+
+    # Create new features for test data
+    test_data['DayOfWeek'] = test_data['Date'].dt.dayofweek
+    test_data['Month'] = test_data['Date'].dt.month
+    test_data['Year'] = test_data['Date'].dt.year
+    test_data['DaysSinceLastPromo'] = (test_data['Date'] - test_data['Date'][test_data['Promo'] == 1].max()).dt.days
+    
+    logging.info("Created new features for test data.")
+
+    # Log the first few rows of the train data to verify the new features
+    logging.info(f"First few rows of train data:\n{train_data.head()}")
+
