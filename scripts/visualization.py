@@ -134,3 +134,69 @@ def plot_sales_by_store_type(train_data, store_data, store_column='Store', sales
         plt.show()
         logger.info("Time series plot for sales by store type has been created.")
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def plot_average_sales(train_data, promo_col='Promo', sales_col='Sales', title='Average Sales on Promo Days vs. Non-Promo Days'):
+    """
+    Plots the average sales for promotional and non-promotional days.
+
+    Parameters:
+        train_data (pd.DataFrame): The dataframe containing the sales data.
+        promo_col (str): The name of the column indicating promotional days. Default is 'Promo'.
+        sales_col (str): The name of the sales column. Default is 'Sales'.
+        title (str): The title of the plot. Default is 'Average Sales on Promo Days vs. Non-Promo Days'.
+    """
+    # Group by 'Promo' and calculate average sales
+    promo_sales = train_data.groupby(promo_col)[sales_col].mean().reset_index()
+    promo_sales.columns = ['Promo', 'Average Sales']
+
+    # Log the calculated average sales
+    logging.info(f"Calculated average sales: {promo_sales}")
+
+    # Plotting the bar chart
+    plt.figure(figsize=(8, 6))
+    sns.barplot(x='Promo', y='Average Sales', data=promo_sales, palette='viridis')
+    plt.title(title, fontsize=14)
+    plt.xlabel(f'{promo_col} (1 = Promo Day, 0 = Non-Promo Day)', fontsize=12)
+    plt.ylabel('Average Sales', fontsize=12)
+    plt.xticks([0, 1], ['Non-Promo Days', 'Promo Days'], fontsize=10)
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.show()
+def plot_sales_trends(train_data):
+    # Set up logging
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    
+    # Ensure `Date` is in datetime format
+    logging.info("Converting 'Date' to datetime format...")
+    train_data['Date'] = pd.to_datetime(train_data['Date'])
+
+    # Create a column for holiday status
+    logging.info("Creating 'Holiday_Status' column...")
+    train_data['Holiday_Status'] = 'Non-Holiday'
+    train_data.loc[train_data['StateHoliday'] != '0', 'Holiday_Status'] = 'During Holiday'
+
+    # Sorting data by date
+    logging.info("Sorting data by 'Date'...")
+    train_data = train_data.sort_values(by='Date')
+
+    # Aggregating sales by date and holiday status
+    logging.info("Aggregating sales by 'Date' and 'Holiday_Status'...")
+    holiday_sales = train_data.groupby(['Date', 'Holiday_Status'])['Sales'].mean().reset_index()
+
+    # Plotting the sales trends
+    logging.info("Plotting sales trends...")
+    plt.figure(figsize=(12, 6))
+    sns.lineplot(data=holiday_sales, x='Date', y='Sales', hue='Holiday_Status', palette='Set2')
+    plt.title('Sales Trends Before, During, and After Holidays', fontsize=16)
+    plt.xlabel('Date', fontsize=12)
+    plt.ylabel('Average Sales', fontsize=12)
+    plt.legend(title='Holiday Status', loc='upper left')
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+
+    logging.info("Displaying the plot...")
+    # Show the plot
+    plt.show()
+
