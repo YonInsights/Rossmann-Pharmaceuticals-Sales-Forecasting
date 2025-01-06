@@ -276,4 +276,18 @@ def plot_decomposition(decomposition):
     decomposition.resid.plot(ax=ax4)
     ax4.set_ylabel('Residual')
     plt.show()
+def calculate_sales_growth(data):
+    """Calculate the percentage growth in sales over time."""
+    data['SalesGrowth'] = data['Sales'].pct_change() * 100
+    return data
+
+def plot_sales_growth(data):
+    """Plot the percentage growth in sales over time."""
+    plt.figure(figsize=(12, 6))
+    plt.plot(data.index, data['SalesGrowth'], label='Sales Growth')
+    plt.xlabel('Date')
+    plt.ylabel('Percentage Growth')
+    plt.title('Percentage Growth in Sales Over Time')
+    plt.legend()
+    plt.show()
 
