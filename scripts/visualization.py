@@ -239,4 +239,18 @@ def plot_boxplot(data):
     plt.xlabel("Promotion Status")
     plt.ylabel("Sales")
     plt.show()
+def get_numerical_features_present(numerical_features, dataframe):
+    """Filter the numerical features to include only those present in the DataFrame."""
+    return [feature for feature in numerical_features if feature in dataframe.columns]
+
+def calculate_correlation_matrix(dataframe, features):
+    """Calculate the correlation matrix for the given features in the DataFrame."""
+    return dataframe[features].corr()
+
+def generate_heatmap(correlation_matrix, figsize=(10, 8), cmap='coolwarm', fmt='.2f', title='Correlation Matrix of Numerical Features'):
+    """Generate a heatmap for the correlation matrix."""
+    plt.figure(figsize=figsize)
+    sns.heatmap(correlation_matrix, annot=True, cmap=cmap, fmt=fmt)
+    plt.title(title)
+    plt.show()
 
