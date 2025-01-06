@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import logging
 import numpy as np
 import pandas as pd
+from statsmodels.tsa.seasonal import seasonal_decompose
 def plot_sales_distribution(train_data, hist_bins=30, hist_title='Sales Distribution - Histogram', 
                             density_title='Sales Distribution - Density Plot', x_label='Sales'):
     """
@@ -252,5 +253,27 @@ def generate_heatmap(correlation_matrix, figsize=(10, 8), cmap='coolwarm', fmt='
     plt.figure(figsize=figsize)
     sns.heatmap(correlation_matrix, annot=True, cmap=cmap, fmt=fmt)
     plt.title(title)
+    plt.show()
+def prepare_data(data):
+    """Prepare the data by converting the 'Date' column to datetime and setting it as the index."""
+    data['Date'] = pd.to_datetime(data['Date'])
+    data.set_index('Date', inplace=True)
+    return data
+
+def decompose_series(data, column, model='additive', period=365):
+    """Decompose the time series data."""
+    return seasonal_decompose(data[column], model=model, period=period)
+
+def plot_decomposition(decomposition):
+    """Plot the decomposed components of the time series."""
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(15, 12))
+    decomposition.observed.plot(ax=ax1)
+    ax1.set_ylabel('Observed')
+    decomposition.trend.plot(ax=ax2)
+    ax2.set_ylabel('Trend')
+    decomposition.seasonal.plot(ax=ax3)
+    ax3.set_ylabel('Seasonal')
+    decomposition.resid.plot(ax=ax4)
+    ax4.set_ylabel('Residual')
     plt.show()
 
