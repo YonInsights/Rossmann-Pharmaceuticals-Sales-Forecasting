@@ -200,3 +200,43 @@ def plot_sales_trends(train_data):
     # Show the plot
     plt.show()
 
+def calculate_promo_sales_summary(data):
+    """
+    Calculate mean sales grouped by Promo status.
+
+    Args:
+        data (DataFrame): The input dataset containing 'Promo' and 'Sales' columns.
+
+    Returns:
+        DataFrame: Summary of mean sales grouped by Promo.
+    """
+    return data.groupby("Promo")["Sales"].mean()
+
+def plot_bar_chart(data):
+    """
+    Plot a bar chart to show average sales by Promo status.
+
+    Args:
+        data (DataFrame): The input dataset containing 'Promo' and 'Sales' columns.
+    """
+    plt.figure(figsize=(8, 6))
+    sns.barplot(x="Promo", y="Sales", data=data, palette="viridis")
+    plt.title("Impact of Promotions on Sales")
+    plt.xlabel("Promotion Status")
+    plt.ylabel("Average Sales")
+    plt.show()
+
+def plot_boxplot(data):
+    """
+    Plot a boxplot to show the distribution of sales by Promo status.
+
+    Args:
+        data (DataFrame): The input dataset containing 'Promo' and 'Sales' columns.
+    """
+    plt.figure(figsize=(8, 6))
+    sns.boxplot(x="Promo", y="Sales", data=data, palette="viridis")
+    plt.title("Sales Distribution: Promotion vs. No Promotion")
+    plt.xlabel("Promotion Status")
+    plt.ylabel("Sales")
+    plt.show()
+
