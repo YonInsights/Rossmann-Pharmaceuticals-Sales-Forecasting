@@ -7,14 +7,26 @@ import pandas as pd
 def handle_missing_values(df, strategy='mean', constant_value=0):
     """
     Handle missing values in the dataset.
+    - strategy='mean': Replace missing values with the column mean (numeric columns only).
+    - strategy='constant': Replace missing values with a constant value.
     """
-    if strategy == 'mean':
-        return df.fillna(df.mean())
-    elif strategy == 'constant':
-        return df.fillna(constant_value)
-    else:
-        raise ValueError("Unsupported strategy for missing values.")
-
+    try:
+        if strategy == 'mean':
+            for col in df.columns:
+                if df[col].dtype in ['int64', 'float64']:
+                    # Only apply mean for numeric columns
+                    df[col].fillna(df[col].mean(), inplace=True)
+                else:
+                    print(f"Skipping non-numeric column: {col}")
+        elif strategy == 'constant':
+            df.fillna(constant_value, inplace=True)
+        else:
+            raise ValueError("Unsupported strategy for missing values.")
+        print("Missing values handled successfully.")
+        return df
+    except Exception as e:
+        print(f"Error in handle_missing_values: {e}")
+        raise
 def encode_categorical_columns(df):
     """
     Encode categorical columns using Label Encoding.
