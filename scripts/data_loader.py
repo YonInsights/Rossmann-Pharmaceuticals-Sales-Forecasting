@@ -1,16 +1,30 @@
 import os
 import pandas as pd
-
-def load_data(file_name):
+def load_data(file_path):
     """
-    Load data from a CSV file in the data folder.
-    
-    Parameters:
-    file_name (str): The name of the CSV file to load.
-    
-    Returns:
-    pd.DataFrame: The loaded data as a pandas DataFrame.
+    Load data from a CSV file.
     """
-    data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
-    file_path = os.path.join(data_folder, file_name)
-    return pd.read_csv(file_path)
+    try:
+        data = pd.read_csv(file_path)
+        print(f"Loaded data from {file_path}")
+        return data
+    except Exception as e:
+        print(f"Error loading data: {e}")
+        return None
+def summarize_data(df):
+    """
+    Summarize dataset with column details.
+    """
+    print("Summary of the dataset:")
+    print(df.info())
+    print("\nMissing Values:")
+    print(df.isnull().sum())
+    print("\nDuplicate Rows:")
+    print(f"Number of duplicate rows: {df.duplicated().sum()}")
+def identify_column_types(df):
+    """
+    Identify numeric and categorical columns.
+    """
+    numeric_cols = df.select_dtypes(include=['int64', 'float64']).columns
+    categorical_cols = df.select_dtypes(include=['object']).columns
+    return numeric_cols, categorical_cols
