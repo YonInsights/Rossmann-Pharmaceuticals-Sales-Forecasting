@@ -25,4 +25,5 @@ def predict():
     return jsonify({'predictions': predictions.tolist()})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use '0.0.0.0' to make the server externally visible
+    app.run(host='0.0.0.0', port=5000, debug=True)
